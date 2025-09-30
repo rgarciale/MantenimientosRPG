@@ -1,0 +1,13 @@
+{
+  "description": "Mantenimiento de provinvias",
+  "curlib": "&CURLIB",
+  "buildCommand": "makei build",
+  "compileCommand": "makei compile -f {filename}",
+  "preUsrlibl": [
+    "BCOINFRGL1"
+  ],
+  "buildObjectCommand": "makei b -t {object}",
+  "postUsrlibl": [
+    "&TESTLIB", "&DEVLIB"
+  ]
+}

@@ -1,3 +1,4 @@
-.logs
-.evfevent
+.logs/*
+!.logs/.ibmi.json
+.evfevent/*.evfevent
 .env

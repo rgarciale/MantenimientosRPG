@@ -1,0 +1,2 @@
+PROVMANTPG.PGM: PROVMANTPG-Programa_Mantenimiento_Provincias.pgm.sqlrpgle PROVMANTF.FILE
+MANPROV.PGM: manprov.pgm.rpgle PROVMANTF.FILE PROVINCIAS.FILE

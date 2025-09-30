@@ -1,0 +1,47 @@
+     A                                      DSPSIZ(24 80 *DS3)
+     A                                      INDARA 
+     A          R ASSUME                    ASSUME
+     A            ASSUME         1      1  2
+     A            FECHA         10   H
+     A            OPCION         2   H
+     A            CODIGO         3S 0H 
+     A            NOMBRE        30   H
+     A
+     A*---------------------------ENCABEZADO------------------------------------
+     A          R ENCABEZADO
+     A                                  2  2USER
+     A                                  1  2SYSNAME
+     A                                  3  2'-----------------------------------
+     A                                      ------------------------------------
+     A                                      --------'
+     A            FECHA     R        O  1 69REFFLD(ASSUME/FECHA)
+     A                                  2 71TIME
+     A                                  1 31'prueba de encabezado'
+     A*----------------------------SUBFILE--------------------------------------
+     A          R SUBFILE                   SFL
+     A                                      SFLNXTCHG
+     A            OPCION    R        O 10  3REFFLD(ASSUME/OPCION)
+     A            CODIGO    R        O 10  8REFFLD(ASSUME/CODIGO)
+     A            NOMBRE    R        O 10 12REFFLD(ASSUME/NOMBRE)
+     A*----------------.-------SUBFILE CONTROL----------------------------------
+     A          R SUBFILECTL                SFLCTL(SUBFILE)
+     A                                      CF03(03 'Salir')
+     A                                      CF12(12 'Cancelar')
+     A                                      CF06(06 'Agregar')
+     A                                      CF05(05 'Rerescar')
+     A                                      OVERLAY
+     A  52                                  SFLDSP
+     A  51                                  SFLDSPCTL
+     A  50                                  SFLCLR
+     A  45                                  SFLEND(*MORE)
+     A                                      SFLSIZ(0006)
+     A                                      SFLPAG(0007)   
+     A            S_RECNO        4S 0H      SFLRCDNBR       
+     A                                  2  2USER
+     A                                  1  2SYSNAME
+     A                                  3  2'-----------------------------------
+     A                                      ------------------------------------
+     A                                      --------'
+     A            FECHA     R        O  1 69REFFLD(ASSUME/FECHA)
+     A                                  2 71TIME
+     A                                  1 31'prueba de encabezado'

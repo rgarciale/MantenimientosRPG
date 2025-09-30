@@ -1,7 +1,7 @@
 
-     FMANPROVFM CF   E             WORKSTN SFILE(SUBFILEPRV:RRN)
+     FPROVMANTF CF   E             WORKSTN SFILE(SUBFILEPRV:RRN)
      F                                     INFDS(INFDS)
-     FBENPRV    UF A E           K DISK
+     FPROVINCIASUF A E           K DISK
      *********************DECLARACIONES***********************************
      DINFDS            DS
      DRRN                             4  0
@@ -13,14 +13,14 @@
      C                   LEAVE
      C                   ENDIF
      C                   IF        *IN06
-     C                   EXSR      SRADD
+     C*                   EXSR      SRADD
      C                   ELSE
-     C                   EXSR      LEESFL
+     C*                   EXSR      LEESFL
      C                   ENDIF
      C                   SETON                                        05
      C                   EXSR      CLRSFL
-     C                   EXSR      FILSFL
-     C                   EXSR      DSPSFL
+     C*                   EXSR      FILSFL
+     C*                   EXSR      DSPSFL
      C                   ENDDO
 
      C                   seton                                        LR
