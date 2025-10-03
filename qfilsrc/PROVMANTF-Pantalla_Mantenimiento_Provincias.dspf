@@ -1,11 +1,13 @@
+     A*%%TS  SD  20251003  231900  BCOINFRGL   REL-V7R5M0  5770-WDS
+     A*%%EC
      A                                      DSPSIZ(24 80 *DS3)
-     A                                      INDARA 
+     A                                      INDARA
      A          R ASSUME                    ASSUME
      A            ASSUME         1      1  2
      A            FECHA         10   H
      A            OPCION         2   H
-     A            CODIGO         3S 0H 
-     A            NOMBRE        30   H
+     A            CODIGO         3S 0H
+     A            NOMBRE        50   H
      A
      A*---------------------------ENCABEZADO------------------------------------
      A          R ENCABEZADO
@@ -19,12 +21,16 @@
      A                                  1 31'prueba de encabezado'
      A*----------------------------SUBFILE--------------------------------------
      A          R SUBFILE                   SFL
+     A*%%TS  SD  20251003  231900  BCOINFRGL   REL-V7R5M0  5770-WDS
      A                                      SFLNXTCHG
-     A            OPCION    R        O 10  3REFFLD(ASSUME/OPCION)
-     A            CODIGO    R        O 10  8REFFLD(ASSUME/CODIGO)
-     A            NOMBRE    R        O 10 12REFFLD(ASSUME/NOMBRE)
+     A            OPCION    R        O 10  3REFFLD(ASSUME/OPCION *SRC)
+     A            CODIGO    R        O 10  8REFFLD(ASSUME/CODIGO *SRC)
+     A            NOMBRE    R        O 10 14REFFLD(ASSUME/NOMBRE *SRC)
      A*----------------.-------SUBFILE CONTROL----------------------------------
      A          R SUBFILECTL                SFLCTL(SUBFILE)
+     A*%%TS  SD  20251003  231900  BCOINFRGL   REL-V7R5M0  5770-WDS
+     A                                      SFLSIZ(0007)
+     A                                      SFLPAG(0006)
      A                                      CF03(03 'Salir')
      A                                      CF12(12 'Cancelar')
      A                                      CF06(06 'Agregar')
@@ -34,14 +40,12 @@
      A  51                                  SFLDSPCTL
      A  50                                  SFLCLR
      A  45                                  SFLEND(*MORE)
-     A                                      SFLSIZ(0006)
-     A                                      SFLPAG(0007)   
-     A            S_RECNO        4S 0H      SFLRCDNBR       
+     A            S_RECNO        4S 0H      SFLRCDNBR
      A                                  2  2USER
      A                                  1  2SYSNAME
      A                                  3  2'-----------------------------------
      A                                      ------------------------------------
      A                                      --------'
-     A            FECHA     R        O  1 69REFFLD(ASSUME/FECHA)
+     A            FECHA     R        O  1 69REFFLD(ASSUME/FECHA *SRC)
      A                                  2 71TIME
      A                                  1 31'prueba de encabezado'

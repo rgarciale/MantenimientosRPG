@@ -123,7 +123,7 @@
      C                   ENDIF
 
 
-     C                   IF        SALIDA = ''
+     C                   IF        SALIDA = ''  rrrr
      C                   EVAL      IDKEY = IDPRVP
      C     IDKEY         CHAIN     BENPRV
      C                   IF        %FOUND(BENPRV)

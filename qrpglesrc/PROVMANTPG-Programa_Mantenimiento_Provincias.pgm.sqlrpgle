@@ -1,17 +1,21 @@
 **free
 ctl-opt dftactgrp(*no) actgrp(*caller);
-dcl-f PROVMANTF workstn indds(dsplyInd) sfile(SUBFILE:recordNumber)  prefix('FM_');
+
+dcl-f MANTPROVFM workstn indds(dsplyInd) sfile(SUBFILE:recordNumber)  prefix('FM_');
 
 dcl-ds dsplyInd qualified;
-   exit ind pos(3);
-   subfEnd ind pos(45);
-   clrSubf ind pos(50);
-   sflDspCtl ind pos(51);
-   sflDsp ind pos(52);
+  exit ind pos(3);
+  add ind pos(6);
+  cancel ind pos(12);
+  subfEnd ind pos(45);
+  clrSubf ind pos(50);
+  sflDspCtl ind pos(51);
+  sflDsp ind pos(52);
 end-ds;
 
-dcl-s recordNumber zoned(4) inz;
+dcl-s recordNumber zoned(5) inz;
 
+FM_S_RECNO = 1;
 main();
 *inlr = '1';
 
@@ -69,7 +73,7 @@ dcl-proc cargaSubfile;
     endif;
 
   enddo;
-  
+
 end-proc;
 
 dcl-proc displaySubfile;
@@ -79,9 +83,9 @@ dcl-proc displaySubfile;
   if recordNumber <= 0;
     dsplyInd.sflDsp = *off;
   endif;
-
+  write ASSUME;
   exfmt SUBFILECTL;
-  
+
   dsplyInd.sflDsp = *off;
   dsplyInd.sflDspCtl = *off;
 end-proc;
